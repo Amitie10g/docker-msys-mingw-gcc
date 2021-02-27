@@ -16,13 +16,19 @@ RUN bash -l -c " \
 			libtool \
 	"
 
-RUN setx path "C:\msys64\mingw64\bin;%PATH%" && \
+# x86_64 or i686
+ARG ARCH=x86_64
+
+# 32 or 64
+ARG MINGW_VARIANT=64
+
+RUN setx path "C:\msys64\mingw$MINGW_VARIANT\bin;%PATH%" && \
 	bash -l -c " \
 		pacman -S --needed --noconfirm --noprogressbar \
-			mingw-w64-x86_64-toolchain && \
+			mingw-w64-$ARCH-toolchain && \
 		rm -r /var/cache/pacman/pkg/* \
 	"
 
 WORKDIR C:\\msys64
-ENV MSYSTEM=MINGW64
+ENV MSYSTEM=MINGW$MINGW_VARIANT
 CMD ["bash"]

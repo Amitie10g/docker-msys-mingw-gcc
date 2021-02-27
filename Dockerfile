@@ -1,5 +1,5 @@
-ARG WINDOWS_VERSION=latest
-FROM amitie10g/msys2:$WINDOWS_VERSION
+ARG VERSION=latest
+FROM amitie10g/msys2:$VERSION
 
 # Install required packages
 RUN bash -l -c " \
@@ -14,11 +14,15 @@ RUN bash -l -c " \
 			autoconf\
 			intltool \
 			libtool \
-			mingw-w64-i686-toolchain \
+	"
+
+RUN bash -l -c " \
+		setx path "C:\msys64\mingw64\bin;%PATH%" && \
+		pacman -S --needed --noconfirm --noprogressbar \
 			mingw-w64-x86_64-toolchain && \
 		rm -r /var/cache/pacman/pkg/* \
 	"
 
 WORKDIR C:\\msys64
-RUN setx path "C:\msys64\mingw64\bin;%PATH%"
-CMD ["bash", "-l"]
+ENV MSYSTEM=MINGW64
+CMD ["bash"]

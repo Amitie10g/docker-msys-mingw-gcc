@@ -4,6 +4,10 @@ This is an attemp to bring Mingw w64 toolchain ([i686](https://packages.msys2.or
 Currently, only [Server Core](https://hub.docker.com/_/microsoft-windows-servercore) is supported, as MSYS executables are unable to run under [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver).
 
 ## Usage
+Two tags are provided:
+* ``latest`` x86_64 toolchain
+* ``i686`` i686 toolchain
+
 MSYS Bash interactive shell (default)
 ```
 docker run -it --volume=host-src:container-dest --workdir="container-dest" amitie10g/mingw-w64-toolchain

@@ -1,7 +1,7 @@
 # MSYS2 MinGW toolchain Docker image under Windows
 This is an attemp to bring Mingw w64 toolchain ([i686](https://packages.msys2.org/group/mingw-w64-i686-toolchain) and [X86-64](https://packages.msys2.org/group/mingw-w64-x86_64-toolchain)) under Microsoft Windows Server Docker image, intended to be used in my own projects.
 
-This comes with the two toolchains: ``x86_64`` and ``i686```.
+This comes with the two toolchains: ``x86_64`` and ``i686``.
 
 Currently, only [Server Core](https://hub.docker.com/_/microsoft-windows-servercore) is supported, as MSYS executables are unable to run under [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver).
 

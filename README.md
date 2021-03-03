@@ -53,6 +53,7 @@ The default workdir is ``C:\msys64``. Set another workdir is recommended only fo
 
 ## Using this base image
 ### Dockerfile
+
 ```
 ARG VERSION=latest
 FROM amitie10g/mingw-w64-toolchain:$VERSION
@@ -87,6 +88,9 @@ This image depends on the [MSYS2 base image](https://hub.docker.com/repository/d
 * libtool
 * make
 * texinfo
+
+## Caveats
+Due the Windows Server Core base image, this image is HUGE. I'm researching how to use Nano Server instead.
 
 ## Licensing
 * The **Dockerfile** has been released into the **public domain** (the Unlicense)

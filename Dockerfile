@@ -21,6 +21,5 @@ RUN setx path "C:\msys64\mingw$MINGW_VARIANT\bin;%PATH%" && \
 		rm -r /var/cache/pacman/pkg/* \
 	"
 
-WORKDIR C:\\msys64
 ENV MSYSTEM=MINGW64
-CMD ["bash"]
+CMD ["bash", "-l"]
